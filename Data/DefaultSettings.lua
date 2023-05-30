@@ -130,6 +130,7 @@ GL.Data.DefaultSettings = {
         ItemLevelDetails = {},
 
         acceptBidsLowerThanMinimum = false, -- Change default? Check Auction.lua !!
+        acceptBidsRestoringIncrement = false,
         addDropsToQueue = true,
         addBOEDropsToQueue = true,
         minimumDropQuality = 4,

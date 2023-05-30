@@ -140,9 +140,9 @@ function GDKP:draw(Parent)
             setting = "GDKP.acceptBidsLowerThanMinimum",
         },
         {
-            label = "Accept bids that restore the increment",
-            description = "Accept bids that don't meet the minimum if they restore the increment",
-            setting = "GDKP.acceptBidsRestoringIncrement",
+            label = "Accept bids starting from the next increment",
+            description = "The minimum bid will be a whole number of increments above the starting bid",
+            setting = "GDKP.acceptBidsFromNextIncrement",
         },
         {
             label = "Allow invalid bids to trigger anti-snipe",

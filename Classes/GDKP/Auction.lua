@@ -1981,8 +1981,19 @@ function Auction:processBid(message, bidder)
         self.Current.minimumBid,
         currentBid + self.Current.minimumIncrement
     );
+    local minimumIncrementBid = (
+        currentBid > 0
+        and
+            self.Current.minimumBid
+            + (currentBid - self.Current.minimumBid) // self.Current.minimumIncrement
+            + self.Current.minimumIncrement
+        or
+            self.Current.minimumBid
+    )
 
-    local bidTooLow = bid < minimumBid;
+    local bidTooLow = bid < minimumBid
+        and Settings:get("GDKP.acceptBidsRestoringIncrement")
+        and bid ~= minimumIncrementBid;
     if (auctionWasStartedByMe) then
         -- Notify the player via whisper if their bid is too low
         if (bidTooLow and Settings:get("GDKP.notifyIfBidTooLow")) then
